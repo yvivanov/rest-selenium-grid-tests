@@ -16,8 +16,6 @@ java -Dwebdriver.chrome.driver=chromedriver.exe -Dwebdriver.ie.driver=IEDriverSe
 
 set|export SURL=<selemium_test_url>
 set|export HURL=<selemium_grid_hub_url>
-set|export USER=<e-mail>
-set|export PSWD=<password>
 
 cd <project_folder>
 gradlew clean jar
