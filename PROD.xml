@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SUITE">
+
+    <test name="TEST">
+        <classes>
+            <class name="com.ajourdesign.application.Tests">
+                <methods>
+                    <include name="com.ajourdesign.application.RestAPI_correct_username_password"/>
+                    <include name="com.ajourdesign.application.RestAPI_failed_username_password"/>
+                    <include name="com.ajourdesign.application.RestAPI_access_token_has_three_parts_separated_by_period"/>
+
+                    <include name="com.ajourdesign.application.Selenium_Chrome_login_successfully"/>
+                    <include name="com.ajourdesign.application.Selenium_Chrome_login_unsuccessfully"/>
+                    <include name="com.ajourdesign.application.Selenium_Chrome_after_successful_login_the_user_is_taken_to_Dashboard"/>
+
+                    <include name="com.ajourdesign.application.Selenium_Explorer_login_successfully"/>
+                    <include name="com.ajourdesign.application.Selenium_Explorer_login_unsuccessfully"/>
+                    <include name="com.ajourdesign.application.Selenium_Explorer_after_successful_login_the_user_is_taken_to_Dashboard"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
