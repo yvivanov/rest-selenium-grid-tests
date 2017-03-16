@@ -1,12 +1,12 @@
 *REST*
-set|export AURL=<authentication_url>
-set|export USER=<e-mail>
-set|export PSWD=<password>
+[set | export] AURL=<authentication_url>
+[set | export] USER=<e-mail>
+[set | export] PSWD=<password>
 
 *Selenium* tests were implemented on a remote Grid hub
 to to allow, for example, Internet Explorer web-driver
 on Linux platform with Jenkins Windows slave Grid node
-See https://github.com/yvivanov/selenium-grid-testng
+See   https://github.com/yvivanov/selenium-grid-testng
 
 # Start Grid hub in CLI window
 java -jar selenium-server-standalone-3.1.0.jar -role hub -port 8844 -browserTimeout 69 -timeout 96
@@ -14,8 +14,8 @@ java -jar selenium-server-standalone-3.1.0.jar -role hub -port 8844 -browserTime
 # Start Grid node in separate CLI window
 java -Dwebdriver.chrome.driver=chromedriver.exe -Dwebdriver.ie.driver=IEDriverServer.exe -jar selenium-server-standalone-3.1.0.jar -role node -hub http://localhost:8844
 
-set|export SURL=<selemium_test_url>
-set|export HURL=<selemium_grid_hub_url>
+[set | export] SURL=<selemium_test_url>
+[set | export] HURL=<selemium_grid_hub_url>
 
 cd <project_folder>
 gradlew clean jar
