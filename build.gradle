@@ -1,5 +1,5 @@
 group   'com.ajourdesign.application'
-version '17.03.09'
+version '17.04.10'
 
 apply plugin: 'java'
 
@@ -19,11 +19,13 @@ configurations {
 }
 
 dependencies {
+    compile 'org.yaml:snakeyaml:1.18'
     compile 'org.testng:testng:6.9.12'
     compile 'org.apache.httpcomponents:httpcore:4.4.6'
     compile 'com.googlecode.json-simple:json-simple:1.1'
     compile 'org.seleniumhq.selenium:selenium-java:3.0.1'
 
+    extLibs 'org.yaml:snakeyaml:1.18'
     extLibs 'org.testng:testng:6.9.12'
     extLibs 'org.apache.httpcomponents:httpcore:4.4.6'
     extLibs 'com.googlecode.json-simple:json-simple:1.1'
