@@ -1,7 +1,0 @@
-# Test 01 data
-input:  227
-expect: 333
-arr:
-  - A
-  - B
-  - [a,b,{c: 3}]

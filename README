@@ -28,7 +28,14 @@ Total tests run: 9, Failures: 0, Skips: 0
 ===============================================
 
 
-
+set    CLASSPATH=\Users\root\IdeaProjects\rest-selenium-grid-tests\build\libs\rest-selenium-grid-tests-17.04.10.jar
+vi config.yml
+screen
+export CLASSPATH=/home/r00t/Jar/rest-selenium-grid-tests-17.04.10.jar
+java   com.ajoudesign.application.MiniGet
+^ad
+screen -ls
+screen -r ...
 
 
 
