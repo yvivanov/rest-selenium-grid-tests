@@ -9,7 +9,6 @@ import org.yaml.snakeyaml.Yaml;
 public class MiniGet extends Thread {
     Socket          S;
     static String   HOST, ROOT;
-    static int N=0;
 
     public static void main( String[] args ) throws Exception {
         String          path =(new File(".")).getAbsolutePath();
