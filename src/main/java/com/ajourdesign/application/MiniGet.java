@@ -161,9 +161,9 @@ public class MiniGet extends Thread {
                         c = (int) Math.floor( (x.getTime() % 1000) * 0.1 );
         return(       Integer.toString(Y  < 1900 ? Y+1900 : Y )         +"-"+
             ( M > 9 ? Integer.toString(M) : ("0"+Integer.toString(M)) ) +"-"+
-            ( D > 9 ? Integer.toString(D) : ("0"+Integer.toString(D)) ) +"\t"+
-            ( h > 9 ? Integer.toString(h) : ("0"+Integer.toString(h)) ) +"."+
-            ( m > 9 ? Integer.toString(m) : ("0"+Integer.toString(m)) ) +"."+
+            ( D > 9 ? Integer.toString(D) : ("0"+Integer.toString(D)) ) +" "+
+            ( h > 9 ? Integer.toString(h) : ("0"+Integer.toString(h)) ) +":"+
+            ( m > 9 ? Integer.toString(m) : ("0"+Integer.toString(m)) ) +":"+
             ( s > 9 ? Integer.toString(s) : ("0"+Integer.toString(s)) ) +"."+
             ( c > 9 ? Integer.toString(c) : ("0"+Integer.toString(c)) ) );
     }
