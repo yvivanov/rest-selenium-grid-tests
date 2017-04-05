@@ -11,9 +11,9 @@ public class MiniGet extends Thread {
     private static String   HOST, ROOT;
 
     public static void  main( String[] args ) throws Exception {
-        String          path =(new File(".")).getAbsolutePath();
+        String          path = (new File(".")).getAbsolutePath();
         InputStream     inpt = new FileInputStream(new File(path + File.separator + "config.yml"));
-        Map             conf =(Map) (new Yaml()).load(inpt);
+        Map             conf = (Map) (new Yaml()).load(inpt);
         int             PORT = (int)    conf.get("PORT");
                         HOST = (String) conf.get("HOST");
                         ROOT = (String) conf.get("ROOT");
