@@ -50,8 +50,9 @@ Build
 Build/Execute shell
 #!/bin/bash
 
-export CLASSPATH=/var/lib/jenkins/workspace/...-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
-export TEST_CONF=/var/lib/jenkins/workspace/...-build/PROD.xml
+export PROJ_HOME=${JENKINS_HOME}/workspace/...
+export CLASSPATH=$PROJ_HOME-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
+export TEST_CONF=$PROJ_HOME-build/PROD.xml
 
 export AURL=https://...com/authentication
 export HURL=http://192.168.0.189:8844/wd/hub
@@ -71,11 +72,11 @@ Build/Execute shell
 cat   <<EOF >config.yml
 HOST: 192.168.0.222:8855
 PORT: 8855
-ROOT: /var/lib/jenkins/workspace/forio-test-run/test-output
+ROOT: /var/lib/jenkins/workspace/...-test-run/test-output
 EOF
 cat   config.yml
 
-export PROJ_HOME=${JENKINS_HOME}/workspace/forio
+export PROJ_HOME=${JENKINS_HOME}/workspace/...
 export CLASSPATH=$PROJ_HOME-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
 cp    $PROJ_HOME-build/favicon.ico $PROJ_HOME-test-run/test-output/.
 echo  $CLASSPATH
