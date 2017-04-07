@@ -1,12 +1,12 @@
 # MiniGet webserver configuration
 # export CLASSPATH=/home/r00t/Jar/rest-selenium-grid-tests-17.04.10.jar
+# sudo -s
 # screen
-# java   com.ajourdesign.application.MiniGet
-# ^ad
-# ...
+# java   com.ajourdesign.application.Mini
+^ad
 # screen -ls
-# screen -r ...
+# screen -r
 
-HOST: 192.168.0.222:8855
-PORT: 8855
+HOST: 192.168.0.222
+PORT: 80
 ROOT: C:\TMP\TEST

@@ -32,7 +32,7 @@ set    CLASSPATH=\Users\root\IdeaProjects\rest-selenium-grid-tests\build\libs\re
 vi config.yml
 screen
 export CLASSPATH=/home/r00t/Jar/rest-selenium-grid-tests-17.04.10.jar
-java   com.ajourdesign.application.MiniGet
+java   com.ajourdesign.application.Mini
 ^ad
 screen -ls
 screen -r ...
@@ -40,11 +40,11 @@ screen -r ...
 
 *Jenkins Build*
 Source Code Management
-	(*) Git
+    (*) Git
 Build
-	(*) Invoke Gradle
-		clean
-		jar
+    (*) Invoke Gradle
+    clean
+    jar
 
 *Test Run*
 Build/Execute shell
@@ -63,8 +63,8 @@ cat  $TEST_CONF
 java org.testng.TestNG $TEST_CONF
 
 *Start Report Server*
-	http://192.168.0.222:8855/index.html
-	http://192.168.0.222:8855/SUITE/TEST.html
+    http://192.168.0.222:8855/index.html
+    http://192.168.0.222:8855/SUITE/TEST.html
 Build/Execute shell
 #!/bin/bash
 
@@ -79,12 +79,13 @@ EOF
 
 echo $CLASSPATH
 cat  $CONF_YAML
-java com.ajourdesign.application.MiniGet
+java com.ajourdesign.application.Mini
 
 *Stop Report Server*
+    http://192.168.0.222:8855/HALT
 Build/Execute shell
 #!/bin/bash
 
-ps        -aux | grep MiniGet | grep jenkins | grep -v grep
-echo $(ps -aux | grep MiniGet | grep jenkins | grep -v grep | cut -c10-14)
-kill $(ps -aux | grep MiniGet | grep jenkins | grep -v grep | cut -c10-14)
+ps        -aux | grep Mini | grep jenkins | grep -v grep
+echo $(ps -aux | grep Mini | grep jenkins | grep -v grep | cut -c10-14)
+kill $(ps -aux | grep Mini | grep jenkins | grep -v grep | cut -c10-14)
