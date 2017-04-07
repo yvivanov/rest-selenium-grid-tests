@@ -68,18 +68,17 @@ java org.testng.TestNG $TEST_CONF
 Build/Execute shell
 #!/bin/bash
 
-export CLASSPATH=/var/lib/jenkins/workspace/...-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
-export CONF_YAML=/var/lib/jenkins/workspace/...-test-start-online-report-server/config.yml
-
 cat   <<EOF >config.yml
 HOST: 192.168.0.222:8855
 PORT: 8855
-ROOT: /var/lib/jenkins/workspace/...-test-run/test-output
+ROOT: /var/lib/jenkins/workspace/forio-test-run/test-output
 EOF
 
-echo $CLASSPATH
-cat  $CONF_YAML
-java com.ajourdesign.application.Mini
+export CLASSPATH=/var/lib/jenkins/workspace/forio-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
+echo   $CLASSPATH
+cat    config.yml
+cp     /var/lib/jenkins/workspace/forio-build/favicon.ico .
+java   com.ajourdesign.application.Mini
 
 *Stop Report Server*
     http://192.168.0.222:8855/HALT
