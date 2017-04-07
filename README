@@ -73,12 +73,13 @@ HOST: 192.168.0.222:8855
 PORT: 8855
 ROOT: /var/lib/jenkins/workspace/forio-test-run/test-output
 EOF
+cat   config.yml
 
-export CLASSPATH=/var/lib/jenkins/workspace/forio-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
-echo   $CLASSPATH
-cat    config.yml
-cp     /var/lib/jenkins/workspace/forio-build/favicon.ico .
-java   com.ajourdesign.application.Mini
+export PROJ_HOME=${JENKINS_HOME}/workspace/forio
+export CLASSPATH=$PROJ_HOME-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
+cp    $PROJ_HOME-build/favicon.ico $PROJ_HOME-test-run/test-output/.
+echo  $CLASSPATH
+java  com.ajourdesign.application.Mini
 
 *Stop Report Server*
     http://192.168.0.222:8855/HALT
