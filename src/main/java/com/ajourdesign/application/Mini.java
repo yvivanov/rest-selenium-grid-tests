@@ -121,6 +121,7 @@ public class Mini extends Thread {
         }
         catch( IOException e ) {
             if( path.equals("/HALT") ) {
+                Log("Mmini is HALTED");
                 Response( id, "200 OK", "text/html", 0, o, Wrn("<blink>Mini is HALTED</blink>"));
                 System.exit(0);
             }
