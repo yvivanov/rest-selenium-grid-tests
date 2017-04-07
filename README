@@ -7,6 +7,7 @@
 to to allow, for example, Internet Explorer web-driver
 on Linux platform with Jenkins Windows slave Grid node
 See   https://github.com/yvivanov/selenium-grid-testng
+                   http://www.seleniumhq.org/download/
 
 # Start Grid hub in CLI window
 java -jar selenium-server-standalone-3.1.0.jar -role hub -port 8844 -browserTimeout 69 -timeout 96
@@ -26,17 +27,6 @@ java org.testng.TestNG PROD.xml
 SUITE
 Total tests run: 9, Failures: 0, Skips: 0
 ===============================================
-
-
-set    CLASSPATH=\Users\root\IdeaProjects\rest-selenium-grid-tests\build\libs\rest-selenium-grid-tests-17.04.10.jar
-vi config.yml
-screen
-export CLASSPATH=/home/r00t/Jar/rest-selenium-grid-tests-17.04.10.jar
-java   com.ajourdesign.application.Mini
-^ad
-screen -ls
-screen -r ...
-
 
 *Jenkins Build*
 Source Code Management

@@ -1,9 +1,9 @@
-# MiniGet webserver configuration
-# export CLASSPATH=/home/r00t/Jar/rest-selenium-grid-tests-17.04.10.jar
+# Mini webserver configuration
+# export CLASSPATH=...jar
 # sudo -s
 # screen
 # java   com.ajourdesign.application.Mini
-^ad
+# ^ad
 # screen -ls
 # screen -r
 
