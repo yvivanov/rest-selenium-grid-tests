@@ -60,7 +60,7 @@ public class Mini extends Thread {
                     UserAgent );
 
             switch("GET POSTHEADOPTI".indexOf( X.substring( 0, 4 ).toUpperCase())) {
-            //       0....+....1....+....2....+....3..
+            //      0....+....1....+
                 case 0:  Get ( id, X, O, S.getOutputStream(), false );	break;
             //  case 4:  Post( id, I, O, ContentLength );             	break;
                 case 8:  Get ( id, X, O, S.getOutputStream(), true );   break;
@@ -94,7 +94,7 @@ public class Mini extends Thread {
 
             if( src.canRead() ) {
                 switch("HTML.HTM.JS.CSS.ICO.GIF.JPG.PNG.XLS.CSV.TSV".indexOf(path.toUpperCase().substring(path.lastIndexOf(".")+1))) {
-                //      0....+....1....+....2....+....3....+....4
+                //      0....+....1....+....2....+....3....+....4..
                     case 0:
                     case 5:  Response( id, "200 OK", "text/html",           	 src.length(), o, null );htm=true;break;
                     case 9:  Response( id, "200 OK", "text/javascript",          src.length(), o, null );break;
