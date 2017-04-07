@@ -32,21 +32,59 @@ set    CLASSPATH=\Users\root\IdeaProjects\rest-selenium-grid-tests\build\libs\re
 vi config.yml
 screen
 export CLASSPATH=/home/r00t/Jar/rest-selenium-grid-tests-17.04.10.jar
-java   com.ajoudesign.application.MiniGet
+java   com.ajourdesign.application.MiniGet
 ^ad
 screen -ls
 screen -r ...
 
 
+*Jenkins Build*
+Source Code Management
+	(*) Git
+Build
+	(*) Invoke Gradle
+		clean
+		jar
 
+*Test Run*
+Build/Execute shell
+#!/bin/bash
 
+export CLASSPATH=/var/lib/jenkins/workspace/...-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
+export TEST_CONF=/var/lib/jenkins/workspace/...-build/PROD.xml
 
+export AURL=https://...com/authentication
+export HURL=http://192.168.0.189:8844/wd/hub
+export SURL=https://...com/epicenter
+export USER=yvivanov@yahoo.com
+export PSWD=6yhn7ujm
 
+cat  $TEST_CONF
+java org.testng.TestNG $TEST_CONF
 
+*Start Report Server*
+	http://192.168.0.222:8855/index.html
+	http://192.168.0.222:8855/SUITE/TEST.html
+Build/Execute shell
+#!/bin/bash
 
+export CLASSPATH=/var/lib/jenkins/workspace/...-build/build/libs/rest-selenium-grid-tests-17.04.10.jar
+export CONF_YAML=/var/lib/jenkins/workspace/...-test-start-online-report-server/config.yml
 
+cat   <<EOF >config.yml
+HOST: 192.168.0.222:8855
+PORT: 8855
+ROOT: /var/lib/jenkins/workspace/...-test-run/test-output
+EOF
 
+echo $CLASSPATH
+cat  $CONF_YAML
+java com.ajourdesign.application.MiniGet
 
+*Stop Report Server*
+Build/Execute shell
+#!/bin/bash
 
-
-org.testng.TestNG.main( args );
+ps        -aux | grep MiniGet | grep jenkins | grep -v grep
+echo $(ps -aux | grep MiniGet | grep jenkins | grep -v grep | cut -c10-14)
+kill $(ps -aux | grep MiniGet | grep jenkins | grep -v grep | cut -c10-14)
