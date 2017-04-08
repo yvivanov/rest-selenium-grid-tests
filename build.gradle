@@ -41,6 +41,6 @@ jar {
 test {
     dependsOn 'cleanTest'
     useTestNG() {
-        suites 'TEST.xml'
+        suites 'PROD.xml'
     }
 }
