@@ -20,7 +20,7 @@ java -Dwebdriver.chrome.driver=chromedriver.exe -Dwebdriver.ie.driver=IEDriverSe
 
 cd <project_folder>
 gradlew clean jar
-set CLASSPATH=.\build\libs\rest-selenium-grid-tests-17.03.09.jar
+set CLASSPATH=.\build\libs\rest-selenium-grid-tests-17.04.10.jar
 java org.testng.TestNG PROD.xml
 ...
 ===============================================
