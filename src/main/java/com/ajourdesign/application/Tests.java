@@ -35,7 +35,7 @@ public class Tests
         test.addListener( lsnr );
         test.run();
     }
-
+/*
     @Test( priority = 10 )
     public void RestAPI_correct_username_password() throws Exception
     {
@@ -64,8 +64,8 @@ public class Tests
         Matcher     mtch = ptrn.matcher( item );
         assertEquals( mtch.matches(), true );
     }
-
-    @Test( priority = 40 )
+*/
+    @Test( priority = 40, threadPoolSize = 5, invocationCount = 5 )
     public void Selenium_Chrome_login_successfully() throws Exception
     {
         WebDriver driver = webLogin( DesiredCapabilities.chrome(), System.getenv("USER"), System.getenv("PSWD"), true );
@@ -74,7 +74,7 @@ public class Tests
         driver.quit();
     }
 
-    @Test( priority = 50 )
+    @Test( priority = 40, threadPoolSize = 5, invocationCount = 5 )
     public void Selenium_Chrome_login_unsuccessfully() throws Exception
     {
         WebDriver driver = webLogin( DesiredCapabilities.chrome(), "user@host.domain.com", "1qaz2wsx", false );
@@ -84,7 +84,7 @@ public class Tests
         driver.quit();
     }
 
-    @Test( priority = 60 )
+    @Test( priority = 40, threadPoolSize = 5, invocationCount = 5 )
     public void Selenium_Chrome_after_successful_login_the_user_is_taken_to_Dashboard() throws Exception
     {
         WebDriver driver = webLogin( DesiredCapabilities.chrome(), System.getenv("USER"), System.getenv("PSWD"), true );
@@ -93,7 +93,35 @@ public class Tests
         driver.quit();
     }
 
-    @Test( priority = 70 )
+    @Test( priority = 40, threadPoolSize = 5, invocationCount = 5 )
+    public void Selenium_Firefox_login_successfully() throws Exception
+    {
+        WebDriver driver = webLogin( DesiredCapabilities.firefox(), System.getenv("USER"), System.getenv("PSWD"), true );
+        String    header = driver.findElement(By.cssSelector(".active")).getText();
+        assertEquals( header, "Dashboard" );
+        driver.quit();
+    }
+
+    @Test( priority = 40, threadPoolSize = 5, invocationCount = 5 )
+    public void Selenium_Firefox_login_unsuccessfully() throws Exception
+    {
+        WebDriver driver = webLogin( DesiredCapabilities.firefox(), "user@host.domain.com", "1qaz2wsx", false );
+        String    errmsg = driver.findElement(By.cssSelector(".alert > p:nth-child(1)")).getText();
+        assertEquals( errmsg, "Incorrect email or password." );
+        System.out.println("\tError: "+ errmsg );
+        driver.quit();
+    }
+
+    @Test( priority = 40 )
+    public void Selenium_Explorer_Firefox_successful_login_the_user_is_taken_to_Dashboard() throws Exception
+    {
+        WebDriver driver = webLogin( DesiredCapabilities.firefox(), System.getenv("USER"), System.getenv("PSWD"), true );
+        String    header = driver.findElement(By.cssSelector(".active")).getText();
+        assertEquals( header, "Dashboard" );
+        driver.quit();
+    }
+/*
+    @Test( priority = 100 )
     public void Selenium_Explorer_login_successfully() throws Exception
     {
         WebDriver driver = webLogin( DesiredCapabilities.internetExplorer(), System.getenv("USER"), System.getenv("PSWD"), true );
@@ -102,7 +130,7 @@ public class Tests
         driver.quit();
     }
 
-    @Test( priority = 80 )
+    @Test( priority = 110 )
     public void Selenium_Explorer_login_unsuccessfully() throws Exception
     {
         WebDriver driver = webLogin( DesiredCapabilities.internetExplorer(), "user@host.domain.com", "1qaz2wsx", false );
@@ -112,7 +140,7 @@ public class Tests
         driver.quit();
     }
 
-    @Test( priority = 90 )
+    @Test( priority = 120 )
     public void Selenium_Explorer_after_successful_login_the_user_is_taken_to_Dashboard() throws Exception
     {
         WebDriver driver = webLogin( DesiredCapabilities.internetExplorer(), System.getenv("USER"), System.getenv("PSWD"), true );
@@ -120,7 +148,7 @@ public class Tests
         assertEquals( header, "Dashboard" );
         driver.quit();
     }
-
+*/
     //  Utilities  -----------------------------------------------------------------
     private String httpPost( String user, String password, int expected ) throws Exception
     {

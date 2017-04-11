@@ -10,10 +10,12 @@ See   https://github.com/yvivanov/selenium-grid-testng
                    http://www.seleniumhq.org/download/
 
 # Start Grid hub in CLI window
-java -jar selenium-server-standalone-3.1.0.jar -role hub -port 8844 -browserTimeout 69 -timeout 96
+java -jar selenium-server-standalone-3.3.1.jar -role hub -port 8844 -browserTimeout 69 -timeout 96
 
 # Start Grid node in separate CLI window
-java -Dwebdriver.chrome.driver=chromedriver.exe -Dwebdriver.ie.driver=IEDriverServer.exe -jar selenium-server-standalone-3.1.0.jar -role node -hub http://localhost:8844
+java -Dwebdriver.chrome.driver=chromedriver.exe -Dwebdriver.ie.driver=IEDriverServer.exe   -jar selenium-server-standalone-3.1.0.jar -role node -hub http://localhost:8844
+java -Dwebdriver.chrome.driver=chromedriver     -Dwebdriver.geckodriver.driver=geckodriver -jar selenium-server-standalone-3.3.1.jar -role node -hub http://localhost:8844
+java -jar selenium-server-standalone-3.3.1.jar -role node -hub -nodeConfig config_node.json
 
 [set | export] SURL=<selemium_test_url>
 [set | export] HURL=<selemium_grid_hub_url>
